@@ -70,7 +70,7 @@ double parser::termo() {
 }
 double parser::expressao() {
 
-  double elemento = expressao();
+  double elemento = termo();
 
   while (!acabou() && std::holds_alternative<operador>(espiar()) &&
          (get<operador>(espiar()) == operador::soma ||
