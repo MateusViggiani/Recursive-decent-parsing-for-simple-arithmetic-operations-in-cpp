@@ -16,8 +16,15 @@ add_compile_options(-Wall -Wextra -Wpedantic -Werror)
 
 add_library(core
   src/lexer.cpp
+  src/parser.cpp
 )
 target_include_directories(core PUBLIC include)
+
+add_executable(testes teste.cpp)
+target_link_libraries(testes PRIVATE core)
+
+add_executable(calc main.cpp)
+target_link_libraries(calc PRIVATE core)
 
 option(ENABLE_SANITIZERS "AddressSanitizer + UBSan" OFF)
 if(ENABLE_SANITIZERS)
